@@ -37,8 +37,16 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
-# Uploads directory (contains user uploaded images)
+
+# Uploads directories (user uploaded images)
 backend/uploads/
+frontend/src/uploads/
+
+# SQLite database
+backend/database.sqlite
+
+# Local secrets
+backend/ENCRYPTION_SECRET.txt
 
 # IDE files
 .vscode/
