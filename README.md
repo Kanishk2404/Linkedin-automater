@@ -1,6 +1,19 @@
-# tweetgenie 🚀
 
-This is a web application that helps automate tweeting using AI for content and image generation. It is fully containerized and ready for deployment or local use with Docker Compose.
+# LinkedGenie 🚀
+
+LinkedGenie is a web application for automating LinkedIn posts using AI-powered content and image generation. It supports scheduling, company page posting, rich formatting, and is fully containerized for easy deployment.
+
+## Key Features
+- **AI-Powered Content Generation:** Generate LinkedIn posts using OpenAI, Gemini, or Perplexity APIs.
+- **Rich Formatting:** Supports bold, italic, hashtags, bullet points, and section dividers with LinkedIn-friendly Unicode formatting.
+- **Image & Article Support:** Attach images (upload or by URL) and article links for rich LinkedIn previews.
+- **Company Page Posting:** Post to personal profiles or LinkedIn company pages.
+- **Scheduling:** Schedule posts for future publication.
+- **API Key Management:** Use your own API keys or default keys (if available).
+- **Rate Limiting:** Per-user API call limits and provider fallback logic.
+- **Modern UI:** Professional, accessible, and responsive interface.
+- **Full Docker Support:** Easy to run locally or deploy anywhere with Docker Compose.
+
 
 ## How to Access and Use
 
@@ -13,21 +26,23 @@ This is a web application that helps automate tweeting using AI for content and 
      docker compose -f docker-compose.prod.yml up --build
      ```
   4. Open your browser and go to [http://localhost:3000](http://localhost:3000)
-  5. Enter your API keys in the web UI and start automating your tweets!
+  5. Enter your API keys in the web UI and start automating your LinkedIn posts!
 - You do not need to clone the full repository unless you want to contribute or customize the code.
+
 
 ### For Contributors (Developers)
 - **Clone this repository:**
   ```bash
-  git clone https://github.com/Kanishk2404/tweet-automation-docker.git
-  cd tweet-automation-docker
+  git clone https://github.com/Kanishk2404/Linkedin-automater.git
+  cd Linkedin-automater
   ```
 - Use `docker-compose.yml` for local development (hot reload, etc.).
 - Use `docker-compose.prod.yml` for production or sharing.
 
+
 ## Project Structure
 ```
-/tweet-automation-docker
+/Linkedin-automater
 |-- backend/
 |   |-- Dockerfile
 |   |-- server.js
@@ -80,4 +95,7 @@ This is a web application that helps automate tweeting using AI for content and 
 
 ---
 
-Enjoy automating your tweets with AI!
+
+---
+
+Enjoy automating your LinkedIn posts with AI!
