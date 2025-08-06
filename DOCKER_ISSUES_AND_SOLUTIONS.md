@@ -1,29 +1,32 @@
 
 
-# Tweet Automation Dockerization: Issues & Solutions
+# LinkedIn Genie Automation Dockerization: Issues & Solutions
 
-## How the Database and Tweet History Were Implemented
+
+## How the Database and LinkedIn Post History Were Implemented
+
 
 **Files involved:**
-- `backend/models/tweet.js` — Defines the Tweet model (structure of each tweet in the database)
+- `backend/models/post.js` — Defines the Post model (structure of each LinkedIn post in the database)
 - `backend/db.js` — Sets up the Sequelize connection to SQLite and ensures the database directory exists
-- `backend/server.js` — Initializes the database, syncs models, and uses the Tweet model for all tweet storage/retrieval
+- `backend/server.js` — Initializes the database, syncs models, and uses the Post model for all LinkedIn post storage/retrieval
 
 **Key code snippets:**
 
-**1. Tweet Model (`backend/models/tweet.js`):**
+
+**1. Post Model (`backend/models/post.js`):**
 ```js
 const {DataTypes} = require('sequelize');
 module.exports = (sequelize) => {
-    const Tweet = sequelize.define('Tweet', {
+    const Post = sequelize.define('Post', {
         id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
         userName: { type: DataTypes.STRING, allowNull: false },
-        content: { type: DataTypes.STRING(280), allowNull: false },
+        content: { type: DataTypes.STRING(3000), allowNull: false },
         imageUrl: { type: DataTypes.STRING, allowNull: true },
-        twitterId: { type: DataTypes.STRING, allowNull: true },
+        linkedinId: { type: DataTypes.STRING, allowNull: true },
         createdAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
     });
-    return Tweet;
+    return Post;
 }
 ```
 
@@ -44,19 +47,21 @@ const sequelize = new Sequelize({
 module.exports = sequelize;
 ```
 
+
 **3. Database Initialization and Usage (`backend/server.js`):**
 ```js
 const sequelize = require('./db');
-const TweetModel = require('./models/tweet');
-const Tweet = TweetModel(sequelize);
+const PostModel = require('./models/post');
+const Post = PostModel(sequelize);
 sequelize.sync().then(() => {
     console.log('Database synced!');
 });
 ```
 
+
 **How it works together:**
 - When the backend starts, it ensures the database directory exists and connects to the SQLite file.
-- The Tweet model defines the structure for all tweet records.
+- The Post model defines the structure for all LinkedIn post records.
 - `sequelize.sync()` creates the necessary tables if they don't exist.
 - All tweet history is stored in the SQLite file, which is persisted by Docker volume.
 
